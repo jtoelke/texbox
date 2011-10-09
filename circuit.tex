@@ -306,3 +306,28 @@
     \draw (#2_OUTE) node[draw=none,fill=none]{ \tiny{#3} };
 }
 
+% arguments:
+% #1 position as tuple x,y
+% #2 name of object
+% #3 label
+\newcommand{\VOLTAGEV}[3]
+{
+    \path (#1) coordinate (COORDINATE);
+
+    \path (COORDINATE) ++( 0, 0.15) coordinate (#2_n);
+    \path (COORDINATE) ++( 0,-0.15) coordinate (#2_s);
+    \path (COORDINATE) ++(-0.15, 0) coordinate (#2_w);
+    \path (COORDINATE) ++( 0.15, 0) coordinate (#2_e);
+
+    \path (COORDINATE) ++( 0, 0.6) coordinate (#2_N);
+    \path (COORDINATE) ++( 0,-0.6) coordinate (#2_S);
+    \path (COORDINATE) ++(-0.6, 0) coordinate (#2_W);
+    \path (COORDINATE) ++( 0.6, 0) coordinate (#2_E);
+
+    \path (COORDINATE) ++( 0,-0.12) coordinate (text);
+
+    \draw (COORDINATE)  circle (.15);
+    \draw (#2_N) -- (#2_n);
+    \draw (#2_S) -- (#2_s);
+    \draw (text) node[draw=none,fill=none]{\textasciitilde};
+}
