@@ -48,6 +48,22 @@
 % #1 coordinate
 % #2 coordinate
 % draws a rectangular connection between given coordinates,
+% first in vertical direction, then horizontal
+% ending with an arrow
+\newcommand{\ACONNECTVH}[2]
+{
+    \draw
+      let
+        \p1=(#1),
+        \p2=(#2)
+      in
+        [->] (\x1, \y1) -- (\x1, \y2) -- (\x2, \y2);
+}
+
+% arguments
+% #1 coordinate
+% #2 coordinate
+% draws a rectangular connection between given coordinates,
 % first in horizontal direction, then vertical
 \newcommand{\CONNECTHV}[2]
 {
@@ -57,6 +73,22 @@
         \p2=(#2)
       in
         [-] (\x1, \y1) -- (\x2, \y1) -- (\x2, \y2);
+}
+
+% arguments
+% #1 coordinate
+% #2 coordinate
+% draws a rectangular connection between given coordinates,
+% first in horizontal direction, then vertical
+% ending with an arrow
+\newcommand{\ACONNECTHV}[2]
+{
+    \draw
+      let
+        \p1=(#1),
+        \p2=(#2)
+      in
+        [->] (\x1, \y1) -- (\x2, \y1) -- (\x2, \y2);
 }
 
 % arguments
