@@ -282,3 +282,27 @@
 
     \draw (#2_OUTN) node[draw=none,fill=none]{ \tiny{#3} };
 }
+
+% arguments
+% #1 coordinates
+% #2 name
+% #3 label
+% Vertical switch with label to the right
+\newcommand{\SWITCHV}[3]
+{
+    \path (#1) ++ (0,0.6) coordinate(#2_OUTN);
+    \path (#1) ++ (0,-0.6) coordinate(#2_OUTS);
+    \path (#1) ++ (-0.4,0) coordinate(#2_OUTW);
+    \path (#1) ++ (0.4,0) coordinate(#2_OUTE);
+
+    \path (#1) ++ (0,0.2) coordinate(gapUp);
+    \path (#1) ++ (0,-0.2) coordinate(gapDown);
+    \path (#1) ++ (0.2,0.2) coordinate(s);
+
+    \draw (#2_OUTN) -- (gapUp);
+    \draw (#2_OUTS) -- (gapDown);
+    \draw (gapDown) -- (s);
+
+    \draw (#2_OUTE) node[draw=none,fill=none]{ \tiny{#3} };
+}
+
